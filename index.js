@@ -98,18 +98,29 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
-}
+function Baby(name, age, favoriteToy) {
+    this.name = name;
+    this.age = age;
+    this.favoriteToy = favoriteToy;
+};
+Baby.prototype = Object.create(Person.prototype);
 
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}.`;
+}
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The 'this' keyword is used when binding elements together. The first principle of the 'this' keyword is that if there is not 
+     sufficient context for a variable to be stored somewhere, it will default to being stored in the window (global scope). This is 
+     referred to as window or global object binding.
+  2. The second principle is implicit binding, most commonly found in dot syntax. The idea here is that whatever value is on the left 
+     of the dot is 'this' and provides context for the function that's being called. 
+  3. The third principle is new binding, which occurs when creating new instances of objects using a constructor function. In this case,
+     'this' refers to the specific object that is being constructed. 
+  4. Lastly, there is explicit binding, which makes use of the methods .call() .bind() and .apply(). The value that is passed in 
+     as an argument is 'this' and it is being defined as it's passed in. 
 */
 
 
